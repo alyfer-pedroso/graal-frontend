@@ -9,11 +9,17 @@
   flex-direction: column;
 }
 
+#root,
+body,
+body > * {
+  font-family: "Inter_18pt";
+}
+
 .scrollhidden::-webkit-scrollbar {
   display: none;
 }
 
-ody::-webkit-scrollbar,
+body::-webkit-scrollbar,
 .scrollstyled::-webkit-scrollbar {
   width: 0.2rem; /* 0 por enquanto */
   background-color: #f2f2f2;
