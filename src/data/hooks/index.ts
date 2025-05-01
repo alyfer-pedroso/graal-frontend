@@ -3,3 +3,4 @@ export { useStorage } from "./useStorage";
 export { useApi } from "./useApi";
 export { useCrypto } from "./useCrypto";
 export { useMainContext } from "./useMainContext";
+export { useToast, toast } from "./useToast";

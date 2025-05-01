@@ -1,3 +1,6 @@
+export * as Toast from "./toast";
+export { Toaster } from "./toaster";
+
 export {
   Dialog,
   DialogTrigger,
@@ -10,3 +13,16 @@ export {
   DialogOverlay,
   DialogPortal,
 } from "./dialog";
+
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./select";
