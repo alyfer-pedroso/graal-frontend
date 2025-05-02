@@ -88,6 +88,10 @@ body > * {
   font-family: "Montserrat";
 }
 
+body {
+  position: "relative";
+}
+
 .scrollhidden::-webkit-scrollbar {
   display: none;
 }

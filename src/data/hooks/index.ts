@@ -4,3 +4,4 @@ export { useApi } from "./useApi";
 export { useCrypto } from "./useCrypto";
 export { useMainContext } from "./useMainContext";
 export { useToast, toast } from "./useToast";
+export { usePagesList } from "./usePagesList";
