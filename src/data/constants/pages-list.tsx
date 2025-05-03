@@ -26,7 +26,7 @@ export const PAGES_LIST: IPage[] = [
     showInHome: true,
     icon: PointOfSale,
     path: "/point-of-sale",
-    title: "Ponto de venda",
+    title: "Ponto de Venda",
     component: <Pages.Home />,
     hierarchies: [UserRoles.CASHIER],
     description: "Processar vendas, digitalizar itens e lidar com transações de clientes",

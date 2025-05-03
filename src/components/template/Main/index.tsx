@@ -9,7 +9,7 @@ interface props {
 
 export const Main: FC<props> = ({ ...props }) => {
   return (
-    <main className={cn("w-full h-full max-h-full z-10 relative bg-graal-gray-100", props?.className)} style={props?.style}>
+    <main className={cn("w-full h-full max-h-full pt-[5.5rem] z-10 relative bg-graal-gray-100", props?.className)} style={props?.style}>
       {props?.children}
     </main>
   );
