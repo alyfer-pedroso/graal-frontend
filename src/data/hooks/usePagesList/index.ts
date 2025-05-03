@@ -6,7 +6,7 @@ export function usePagesList() {
   const hierarchy = useMemo(() => UserRoles.CASHIER, []);
   const routes = useMemo(() => PAGES_LIST.filter((page) => page.hierarchies.includes(hierarchy)), [hierarchy]);
 
-  const currentRoute = useMemo(() => routes.find(({ path }) => location.pathname.startsWith(path)), [location.pathname]);
+  const currentRoute = useMemo(() => routes.find(({ path }) => path.includes(location.pathname.split("/")[1])), [location.pathname]);
 
   const routesForHome = useMemo(() => routes.filter(({ showInHome }) => showInHome), [routes]);
 
@@ -15,5 +15,11 @@ export function usePagesList() {
     location.reload();
   };
 
-  return { routes, currentRoute, PAGES_LIST, logOut, routesForHome };
+  return {
+    routes,
+    currentRoute,
+    PAGES_LIST,
+    logOut,
+    routesForHome,
+  };
 }

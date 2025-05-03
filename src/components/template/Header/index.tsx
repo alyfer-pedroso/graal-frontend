@@ -14,7 +14,7 @@ interface props {
 
 export const Header: FC<props> = ({ show }) => {
   const { currentRoute, PAGES_LIST } = usePagesList();
-  const inHome = useMemo(() => currentRoute.title === PAGES_LIST[0].title, [currentRoute]);
+  const inHome = useMemo(() => currentRoute?.title === PAGES_LIST[2]?.title, [currentRoute]);
 
   const headerComponent = useMemo(() => {
     if (inHome) {
@@ -22,10 +22,10 @@ export const Header: FC<props> = ({ show }) => {
     }
 
     return <RouteData currentRoute={currentRoute} />;
-  }, [currentRoute]);
+  }, [currentRoute, inHome]);
 
   return (
-    Boolean(show === true || show === undefined) && (
+    show && (
       <S.Header className={cn({ "flex-row-reverse": !inHome })}>
         <img src={GraaLogo} alt="Logo 'Graal'" className="h-full" />
         {headerComponent}

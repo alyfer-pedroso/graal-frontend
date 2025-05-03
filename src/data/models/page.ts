@@ -1,7 +1,7 @@
 import { UserRoles } from "./roles";
 
 export interface IPage {
-  path: `/${string}`;
+  path: `/${string}` | "*";
   title?: string;
   description?: string;
   icon?: string;

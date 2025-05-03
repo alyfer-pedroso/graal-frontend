@@ -5,6 +5,7 @@ import * as S from "./styles";
 
 export function Home() {
   const { routesForHome } = usePagesList();
+
   return (
     <Page className="overflow-hidden">
       <S.Container>
