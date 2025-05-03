@@ -1,12 +1,15 @@
 import { Button, Input, Page } from "../../../components/template";
 import GraalLogo from "../../../assets/images/graal-logo.png";
 
+import { useLogin } from "./hooks";
 import * as S from "./styles";
 
 export function Login() {
+  const { onSubmit } = useLogin();
+
   return (
     <Page header={false} className="flex justify-center items-center bg-graal-blue-50">
-      <S.Form id="login-form">
+      <S.Form id="login-form" onSubmit={onSubmit}>
         <div>
           <img src={GraalLogo} alt="Logo 'Graal'" className="w-[200px]" />
           <S.Title>Login</S.Title>

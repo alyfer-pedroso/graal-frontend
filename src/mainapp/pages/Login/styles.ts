@@ -1,7 +1,7 @@
 import tw from "tailwind-styled-components";
 import { Link } from "react-router";
 
-export const Form = tw.form`
+export const Form = tw.form<React.ComponentProps<"form">>`
 w-full
 min-w-[200px]
 max-w-[70dvw]
