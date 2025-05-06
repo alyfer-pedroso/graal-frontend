@@ -23,7 +23,7 @@ export function Register() {
         </div>
 
         <div className="flex gap-4">
-          <S.RegisterLink to="/login">Login</S.RegisterLink>
+          <S.RegisterLink to="/">Login</S.RegisterLink>
           <Button btnContent="Cadastrar" className="min-w-[122px]" />
         </div>
       </S.Form>
