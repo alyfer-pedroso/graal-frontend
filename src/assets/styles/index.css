@@ -85,7 +85,11 @@
 #root,
 body,
 body > * {
-  font-family: "Montserrat";
+  font-family: "Poppins";
+}
+
+body {
+  position: "relative";
 }
 
 .scrollhidden::-webkit-scrollbar {

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { AiOutlineLoading, AiOutlineLoading3Quarters } from "react-icons/ai";
-import { cn } from "../../../lib/utils";
+import { cn } from "@/lib/utils";
 
 interface props {
   colorLoading?: string;

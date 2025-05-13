@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { SelectContent, SelectItem, SelectTrigger, SelectValue, Select as SL } from "../../ui";
-import { cn } from "../../../lib/utils";
+import { SelectContent, SelectItem, SelectTrigger, SelectValue, Select as SL } from "@/components/ui";
+import { cn } from "@/lib/utils";
 
 interface props {
   value?: string;
