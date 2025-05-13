@@ -1,7 +1,7 @@
 import { FC, useEffect, useImperativeHandle, useState } from "react";
 
-import { IBaseModal } from "../../../data/models/base-modal";
-import GraalLogo from "../../../assets/images/graal-white-logo.png";
+import { IBaseModal } from "@/data/models/base-modal";
+import GraalLogo from "@/assets/images/graal-white-logo.png";
 
 import { Spinner } from "../Spinner";
 

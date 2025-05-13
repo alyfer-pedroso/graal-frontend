@@ -2,7 +2,7 @@ import { FC } from "react";
 import { ShoppingBag } from "lucide-react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-import { Button } from "../../../../../components/ui";
+import { Button } from "@/components/ui";
 
 export const CurrentSaleHeader: FC = () => {
   return (

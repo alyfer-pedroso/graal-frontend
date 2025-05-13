@@ -1,5 +1,5 @@
-import { Button, Input, Page, Select } from "../../../components/template";
-import GraalLogo from "../../../assets/images/graal-logo.png";
+import { Button, Input, Page, Select } from "@/components/template";
+import GraalLogo from "@/assets/images/graal-logo.png";
 
 import { CodeModal } from "./components";
 import * as S from "./styles";

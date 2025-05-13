@@ -1,12 +1,12 @@
 import * as Pages from "./pages";
-// import * as Pages from "../../mainapp/pages";
+// import * as Pages from "@/mainapp/pages";
 
-import { IPage } from "../models/page";
-import { UserRoles } from "../models/roles";
+import { IPage } from "@/data/models/page";
+import { UserRoles } from "@/data/models/roles";
 
-import PointOfSaleIcon from "../../assets/images/point-of-sale.svg";
-import InventoryIcon from "../../assets/images/inventory.svg";
-import ConfigIcon from "../../assets/images/config.svg";
+import PointOfSaleIcon from "@/assets/images/point-of-sale.svg";
+import InventoryIcon from "@/assets/images/inventory.svg";
+import ConfigIcon from "@/assets/images/config.svg";
 
 export const PAGES_LIST: IPage[] = [
   {

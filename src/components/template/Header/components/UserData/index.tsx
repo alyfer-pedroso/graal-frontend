@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { usePagesList } from "../../../../../data/hooks";
-import { Button } from "../../../../../components/template";
+import { usePagesList } from "@/data/hooks";
+import { Button } from "@/components/template";
 
 export const UserData: FC = () => {
   const { logOut } = usePagesList();

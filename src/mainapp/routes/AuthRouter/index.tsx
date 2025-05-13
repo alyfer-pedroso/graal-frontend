@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { Login, Register } from "../../pages";
+import { Login, Register } from "@/mainapp/pages";
 
 export function AuthRouter() {
   return (

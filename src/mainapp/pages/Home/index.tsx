@@ -1,5 +1,5 @@
-import { usePagesList } from "../../../data/hooks";
-import { Page } from "../../../components/template";
+import { usePagesList } from "@/data/hooks";
+import { Page } from "@/components/template";
 
 import * as S from "./styles";
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import GraalIcon from "../../../../../assets/images/graal-logo.png";
+import GraalIcon from "@/assets/images/graal-logo.png";
 
 export const CashierHeader: FC = () => {
   return (

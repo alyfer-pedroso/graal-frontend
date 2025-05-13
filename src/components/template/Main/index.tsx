@@ -1,5 +1,5 @@
 import { CSSProperties, FC } from "react";
-import { cn } from "../../../lib/utils";
+import { cn } from "@/lib/utils";
 
 interface props {
   className?: string;

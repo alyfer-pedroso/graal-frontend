@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react";
 
-import { useMainContext } from "../../../data/hooks";
-import { cn } from "../../../lib/utils";
+import { useMainContext } from "@/data/hooks";
+import { cn } from "@/lib/utils";
 
 import { Header, LoadingModal, Main } from "../";
 

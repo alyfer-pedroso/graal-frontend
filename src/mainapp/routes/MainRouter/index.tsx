@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { usePagesList } from "../../../data/hooks";
+import { usePagesList } from "@/data/hooks";
 
 export function MainRouter() {
   const { routes } = usePagesList();

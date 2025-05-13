@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Link } from "react-router";
 
-import { IPage } from "../../../../../data/models/page";
-import LeftChevron from "../../../../../assets/images/left-chevron.svg";
+import { IPage } from "@/data/models/page";
+import LeftChevron from "@/assets/images/left-chevron.svg";
 
 interface props {
   currentRoute: IPage;

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container } from "../../../../../components/template";
+import { Container } from "@/components/template";
 import { CurrentSaleHeader } from "../CurrentSaleHeader";
 
 export const CurrentSale: FC = () => {

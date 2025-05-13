@@ -1,9 +1,9 @@
 import { FC, useMemo } from "react";
 
-import { usePagesList } from "../../../data/hooks";
-import { cn } from "../../../lib/utils";
+import { usePagesList } from "@/data/hooks";
+import { cn } from "@/lib/utils";
 
-import GraaLogo from "../../../assets/images/graal-white-logo.png";
+import GraaLogo from "@/assets/images/graal-white-logo.png";
 
 import { RouteData, UserData } from "./components";
 import * as S from "./styles";

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { PAGES_LIST } from "../../../data/constants";
-import { UserRoles } from "../../../data/models/roles";
+import { PAGES_LIST } from "@/data/constants";
+import { UserRoles } from "@/data/models/roles";
 
 export function usePagesList() {
   const hierarchy = useMemo(() => UserRoles.CASHIER, []);

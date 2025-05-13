@@ -1,5 +1,5 @@
-import { Button, Input, Page } from "../../../components/template";
-import GraalLogo from "../../../assets/images/graal-logo.png";
+import { Button, Input, Page } from "@/components/template";
+import GraalLogo from "@/assets/images/graal-logo.png";
 
 import { useLogin } from "./hooks";
 import * as S from "./styles";

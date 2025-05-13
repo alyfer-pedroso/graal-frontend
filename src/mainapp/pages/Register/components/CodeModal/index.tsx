@@ -1,8 +1,8 @@
 import { FC, useImperativeHandle, useState } from "react";
 
-import { IBaseModal } from "../../../../../data/models/base-modal";
-import { Button, Input } from "../../../../../components/template";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../../../../../components/ui";
+import { IBaseModal } from "@/data/models/base-modal";
+import { Button, Input } from "@/components/template";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui";
 
 interface props {
   ref?: React.RefObject<IBaseModal | null>;

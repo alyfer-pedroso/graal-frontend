@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Page } from "../../../components/template";
+import { Page } from "@/components/template";
 import { CurrentSale, Cashier } from "./components";
 
 export const PointOfSale: FC = () => {
