@@ -1,26 +1,42 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2020": true,
     "node": true
   },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/electron",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "import", "jsx-a11y"],
   "rules": {
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "import/namespace": "off",
-    "import/no-named-as-default-member": "off"
+    "import/no-unresolved": "off",
+    "import/no-named-as-default-member": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "typescript": {
         "project": "./tsconfig.json"

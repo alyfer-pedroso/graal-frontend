@@ -9,7 +9,7 @@ export const CurrentSale: FC = () => {
         className="h-full"
         header={{
           content: <CurrentSaleHeader />,
-          className: "flex justify-between py-2 lg:py-4 lg:px-6",
+          className: "flex justify-between py-2 [@media(min-height:712px)]:py-4 [@media(min-height:712px)]:px-6",
         }}
       ></Container>
 

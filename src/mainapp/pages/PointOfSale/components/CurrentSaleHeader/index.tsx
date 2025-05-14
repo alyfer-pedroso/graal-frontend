@@ -7,12 +7,12 @@ import { Button } from "@/components/ui";
 export const CurrentSaleHeader: FC = () => {
   return (
     <>
-      <span className="flex items-center gap-4 font-medium lg:text-2xl lg:font-normal">
-        <ShoppingBag className="size-7 lg:size-10" /> Venda Atual
+      <span className="flex items-center gap-4 font-medium [@media(min-height:712px)]:text-2xl [@media(min-height:712px)]:font-normal">
+        <ShoppingBag className="size-7 [@media(min-height:712px)]:size-10" /> Venda Atual
       </span>
 
-      <Button variant="outline" className="border-black text-xs lg:text-sm font-medium">
-        <FaRegTrashAlt className="size-4 lg:size-5 mr-1" />
+      <Button variant="outline" className="border-black text-xs [@media(min-height:712px)]:text-sm font-medium hover:opacity-60">
+        <FaRegTrashAlt className="size-4 [@media(min-height:712px)]:size-5 mr-1" />
         Limpar
       </Button>
     </>
