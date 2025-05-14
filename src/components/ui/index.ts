@@ -1,5 +1,6 @@
 export * as Toast from "./toast";
 export { Toaster } from "./toaster";
+export { Button } from "./button";
 
 export {
   Dialog,

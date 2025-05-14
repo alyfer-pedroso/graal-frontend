@@ -56,6 +56,15 @@ module.exports = {
           "blue-50": "#202FB1",
         },
       },
+      keyframes: {
+        popUp: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+      animation: {
+        popUp: "popUp 0.3s ease-out forwards",
+      },
       screens: {
         md2: "900px",
         "3xl": "1600px",
