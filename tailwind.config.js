@@ -52,6 +52,8 @@ module.exports = {
         graal: {
           "gray-50": "#C9C9C9",
           "gray-100": "#FAFAFA",
+          "gray-150": "#656565",
+          "gray-200": "#D9D9D9",
 
           "blue-50": "#202FB1",
         },
