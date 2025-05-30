@@ -40,7 +40,7 @@ export const List: FC = () => {
                 <TableCell>{data.quantidade_min}</TableCell>
                 <TableCell>{data.fornecedor}</TableCell>
                 <TableCell>
-                  <button className="p-0">
+                  <button className="p-0" title="Editar: opção em desenvolvimento">
                     <Pencil size={18} className="mx-auto" />
                   </button>
                 </TableCell>
