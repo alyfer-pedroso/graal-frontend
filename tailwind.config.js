@@ -54,8 +54,11 @@ module.exports = {
           "gray-100": "#FAFAFA",
           "gray-150": "#656565",
           "gray-200": "#D9D9D9",
+          "gray-250": "#F2F2F2",
 
           "blue-50": "#202FB1",
+
+          "yellow-50": "#FFB200",
         },
       },
       keyframes: {

@@ -13,19 +13,19 @@ export const PAGES_LIST: IPage[] = [
     path: "*",
     title: "Início",
     component: <Pages.Home />,
-    hierarchies: [UserRoles.CASHIER],
+    hierarchies: [UserRoles.CASHIER, UserRoles.MANAGER],
   },
   {
     path: "/",
     title: "Início",
     component: <Pages.Home />,
-    hierarchies: [UserRoles.CASHIER],
+    hierarchies: [UserRoles.CASHIER, UserRoles.MANAGER],
   },
   {
     path: "/home",
     title: "Início",
     component: <Pages.Home />,
-    hierarchies: [UserRoles.CASHIER],
+    hierarchies: [UserRoles.CASHIER, UserRoles.MANAGER],
   },
   {
     showInHome: true,
@@ -33,7 +33,7 @@ export const PAGES_LIST: IPage[] = [
     path: "/point-of-sale",
     title: "Ponto de Venda",
     component: <Pages.PointOfSale />,
-    hierarchies: [UserRoles.CASHIER],
+    hierarchies: [UserRoles.CASHIER, UserRoles.MANAGER],
     description: "Processar vendas, digitalizar itens e lidar com transações de clientes",
   },
   {
