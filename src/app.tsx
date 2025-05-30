@@ -5,11 +5,11 @@ import { MainProvider } from "@/data/providers";
 import { Toaster } from "@/components/ui";
 
 export default function App() {
-  const token = useMemo(() => localStorage.getItem("token") ?? "", []);
+  const user = useMemo(() => localStorage.getItem("usuario") ?? "", []);
 
   return (
     <MainProvider>
-      {token ? <MainRouter /> : <AuthRouter />}
+      {user ? <MainRouter /> : <AuthRouter />}
       <Toaster />
     </MainProvider>
   );

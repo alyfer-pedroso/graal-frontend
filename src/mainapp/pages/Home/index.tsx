@@ -2,13 +2,14 @@ import { usePagesList } from "@/data/hooks";
 import { Page } from "@/components/template";
 
 import * as S from "./styles";
+import { cn } from "@/lib/utils";
 
 export function Home() {
   const { routesForHome } = usePagesList();
 
   return (
     <Page className="overflow-hidden">
-      <S.Container>
+      <S.Container className={cn({ "!justify-center": routesForHome.length < 3 })}>
         {routesForHome.map((page) => (
           <S.LinkCard key={page.path} to={page.path}>
             {Boolean(page.icon) && <img src={page.icon} alt={`Ícone de ${page.title}`} className="w-12 lg:w-14" />}
