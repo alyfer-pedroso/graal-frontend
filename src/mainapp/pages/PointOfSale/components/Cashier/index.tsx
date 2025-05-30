@@ -15,6 +15,7 @@ import { paymentTypeOptions } from "../../models";
 export const Cashier: FC = () => {
   const { sales, currentPayment, changePayment } = useSaleContext();
   const total = useMemo(() => sales.reduce((prev, curr) => prev + formatPrice(curr.preco) * curr.quantidade, 0), [sales]);
+  const subTotal = useMemo(() => sales.reduce((prev, curr) => prev + formatPrice(curr.preco), 0), [sales]);
 
   return (
     <Container
@@ -24,7 +25,7 @@ export const Cashier: FC = () => {
       <div className="flex-1 py-2 [@media(min-height:712px)]:p-4 flex flex-col justify-between [@media(min-height:712px)]:gap-4 -mt-2 [@media(min-height:712px)]:mt-0">
         <div className="w-full flex flex-col text-lg [@media(min-height:712px)]:text-2xl scale-90 [@media(min-height:712px)]:scale-100">
           <span className="flex justify-between">
-            <span>Subtotal</span> R$ 0,00
+            <span>Subtotal</span> {formatToString(subTotal)}
           </span>
           <span className="flex justify-between mt-1">
             <span>Total de itens</span> {sales.length} Qtd

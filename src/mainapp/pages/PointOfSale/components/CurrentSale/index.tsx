@@ -33,6 +33,10 @@ export const CurrentSale: FC = () => {
     setPayment(formatToString(0));
   }, [currentPayment]);
 
+  useEffect(() => {
+    if (!sales.length) setPayment(formatToString(0));
+  }, [sales]);
+
   return (
     <div className="w-full h-full flex flex-col gap-2">
       <Container
