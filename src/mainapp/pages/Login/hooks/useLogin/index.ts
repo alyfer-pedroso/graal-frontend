@@ -1,16 +1,44 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
+
+import { useMainContext } from "@/data/hooks";
+import { Employees } from "@/data/services/employees";
+import { IEmployee, ILogin } from "@/data/models/employees";
 
 export function useLogin() {
   const nav = useNavigate();
 
-  const onSubmit = (e: React.FormEvent) => {
-    e?.preventDefault();
+  const { isLoading, loadingModalRef } = useMainContext();
+  const { login } = Employees();
 
-    //? TESTING
-    localStorage.setItem("token", "token");
-    nav("/home");
-    location.reload();
+  const [form, setForm] = useState<ILogin>({ usuario: "", senha: "" });
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e?.preventDefault();
+    if (isLoading) return;
+
+    try {
+      loadingModalRef.current?.onShow();
+      const userData = await login({ ...form });
+      if (userData) {
+        saveUserData(userData);
+        nav("/home");
+        location.reload();
+      }
+    } catch {
+      loadingModalRef.current?.onClose();
+    }
   };
 
-  return { onSubmit };
+  const changeForm = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [key]: e.target.value });
+  };
+
+  const saveUserData = (userData: IEmployee) => {
+    Object.keys(userData).forEach((key: keyof typeof userData) => {
+      localStorage.setItem(key, userData[key].toString());
+    });
+  };
+
+  return { onSubmit, form, changeForm };
 }

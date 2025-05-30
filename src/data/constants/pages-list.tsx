@@ -42,7 +42,7 @@ export const PAGES_LIST: IPage[] = [
     path: "/inventory",
     title: "Estoque",
     component: <Pages.Inventory />,
-    hierarchies: [UserRoles.CASHIER],
+    hierarchies: [UserRoles.MANAGER],
     description: "Processar vendas, digitalizar itens e lidar com transações de clientes",
   },
   {
@@ -51,7 +51,7 @@ export const PAGES_LIST: IPage[] = [
     path: "/configurations",
     title: "Configurações",
     component: <Pages.Home />,
-    hierarchies: [UserRoles.CASHIER],
+    hierarchies: [UserRoles.MANAGER],
     description: "Processar vendas, digitalizar itens e lidar com transações de clientes",
   },
 ];
