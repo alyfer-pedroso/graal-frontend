@@ -1,7 +1,7 @@
 export interface IProduct {
   EAN: string;
   categoria: string;
-  forncedor: string;
+  fornecedor: string;
   id: number;
   id_categoria: number;
   id_fornecedor: number;
@@ -11,3 +11,5 @@ export interface IProduct {
   quantidade_min: number;
   validade: string;
 }
+
+export type IProductCreate = Omit<IProduct, "id" | "fornecedor" | "categoria" | "EAN">;

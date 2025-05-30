@@ -2,10 +2,10 @@ import { useCallback } from "react";
 import { AxiosResponse } from "axios";
 
 import { useApi, useToast } from "@/data/hooks";
-import { IProduct } from "../models/products";
+import { IProduct, IProductCreate } from "../models/products";
 
 export function Products() {
-  const { api } = useApi();
+  const { api, getError } = useApi();
   const { toast } = useToast();
 
   const getProducts = useCallback(async () => {
@@ -18,5 +18,15 @@ export function Products() {
     }
   }, []);
 
-  return { getProducts };
+  const create = useCallback(async (body: IProductCreate) => {
+    try {
+      const { data }: AxiosResponse<IProduct> = await api.post("produtos/", { ...body });
+      return data;
+    } catch (err) {
+      console.log(getError(err));
+      toast({ title: "Cadastro", description: getError(err), variant: "destructive" });
+    }
+  }, []);
+
+  return { getProducts, create };
 }

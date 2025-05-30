@@ -24,7 +24,7 @@ export const LoadingModal: FC<props> = ({ ref, ...props }) => {
 
   return (
     open && (
-      <div className="fixed top-0 left-0 w-screen h-screen flex flex-col justify-center items-center bg-graal-blue-50 gap-4 z-50">
+      <div className="fixed top-0 left-0 w-screen h-screen flex flex-col justify-center items-center bg-graal-blue-50 gap-4 z-[99]">
         <img src={GraalLogo} alt="Logo 'Graal'" className="w-[30dvw] animate-popUp" />
         <Spinner colorLoadingBg="text-white" colorLoading="text-graal-blue-50" containerClassname="scale-0 animate-popUp [animation-delay:0.15s] " />
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 
 import { useMainContext } from "@/data/hooks";
 
@@ -10,24 +10,22 @@ import { IProduct } from "@/data/models/products";
 import { ISelectItem } from "@/data/models/select";
 import { Suppliers } from "@/data/services/suppliers";
 
-import * as initialState from "./initial-state";
+import { ProductsContext, initialState } from "./products-context";
 
-export function useInventory() {
+const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const { loadingModalRef, isLoading } = useMainContext();
 
   const { getProducts, create } = Products();
   const { getCategories } = Categories();
   const { getSuppliers } = Suppliers();
 
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [categories, setCategories] = useState<ISelectItem[]>([]);
-  const [suppliers, setSuppliers] = useState<ISelectItem[]>([]);
+  const [products, setProducts] = useState(initialState.products);
+  const [categories, setCategories] = useState(initialState.categories);
+  const [suppliers, setSuppliers] = useState(initialState.suppliers);
   const [productForm, setProductForm] = useState(initialState.productForm);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(initialState.search);
 
   const addModalRef = useRef<IBaseModal>(null);
-
-  const filteredProducts = useMemo(() => products.filter(({ nome }) => nome.toLowerCase().includes(search.toLowerCase())), [products, search]);
 
   const fetchProducts = async () => {
     if (products.length) return;
@@ -98,21 +96,27 @@ export function useInventory() {
     fetchData();
   }, []);
 
-  return {
-    addModalRef,
-    openAddModal,
-    products,
-    isLoading,
-    categories,
-    suppliers,
-    productForm,
-    productsDepreciated: products.filter((product) => product.quantidade < product.quantidade_min),
-    changeProductForm,
-    changeCategory,
-    changeSupplier,
-    onSubmitProduct,
-    search,
-    onSearch,
-    filteredProducts,
-  };
-}
+  return (
+    <ProductsContext.Provider
+      value={{
+        addModalRef,
+        openAddModal,
+        products: products.filter((data) => data?.nome?.toLowerCase()?.includes(search.toLowerCase())),
+        categories,
+        suppliers,
+        productForm,
+        productsDepreciated: products.filter((product) => product.quantidade < product.quantidade_min),
+        changeProductForm,
+        changeCategory,
+        changeSupplier,
+        onSubmitProduct,
+        search,
+        onSearch,
+      }}
+    >
+      {children}
+    </ProductsContext.Provider>
+  );
+};
+
+export { ProductsContext, ProductsProvider };

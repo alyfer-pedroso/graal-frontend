@@ -1,20 +1,18 @@
 import { FC } from "react";
+import { Pencil } from "lucide-react";
+
 import { Container } from "@/components/template";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui";
-import { Pencil } from "lucide-react";
-import { useInventory } from "../../hooks";
+
+import { useProductsContext } from "../../hooks";
 
 const headers = ["ID", "Nome Produto", "Preço", "Cateogria", "EAN", "Qtd", "Min. Qtd", "Fornecedor", "Ações"];
 
-interface props {
-  inventoryHook: ReturnType<typeof useInventory>;
-}
-
-export const List: FC<props> = () => {
-  const { products } = useInventory();
+export const List: FC = () => {
+  const { products } = useProductsContext();
 
   return (
-    <Container className="overflow-y-scroll flex-1 scrollstyled">
+    <Container key={products.length} className="overflow-y-scroll flex-1 scrollstyled">
       <Table>
         <TableHeader>
           <TableRow>
@@ -26,7 +24,7 @@ export const List: FC<props> = () => {
         <TableBody>
           {!products.length ? (
             <TableRow>
-              <TableCell colSpan={headers.length}>Nenhum produto cadastrado</TableCell>
+              <TableCell colSpan={headers.length}>Nenhum produto encontrado</TableCell>
             </TableRow>
           ) : (
             products.map((data) => (
@@ -40,7 +38,7 @@ export const List: FC<props> = () => {
                 <TableCell>{data.EAN}</TableCell>
                 <TableCell>{data.quantidade}</TableCell>
                 <TableCell>{data.quantidade_min}</TableCell>
-                <TableCell>{data.forncedor}</TableCell>
+                <TableCell>{data.fornecedor}</TableCell>
                 <TableCell>
                   <button className="p-0">
                     <Pencil size={18} className="mx-auto" />

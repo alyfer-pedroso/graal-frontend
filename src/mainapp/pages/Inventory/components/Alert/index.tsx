@@ -1,13 +1,9 @@
 import { FC, useMemo } from "react";
 import { Archive } from "lucide-react";
-import { useInventory } from "../../hooks";
+import { useProductsContext } from "../../hooks";
 
-interface props {
-  inventoryHook: ReturnType<typeof useInventory>;
-}
-
-export const Alert: FC<props> = ({ inventoryHook }) => {
-  const { productsDepreciated } = inventoryHook;
+export const Alert: FC = () => {
+  const { productsDepreciated } = useProductsContext();
   const currentProduct = useMemo(() => productsDepreciated[0], [productsDepreciated]);
 
   return (
