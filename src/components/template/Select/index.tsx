@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+
+import { ISelectItem } from "@/data/models/select";
 import { SelectContent, SelectItem, SelectTrigger, SelectValue, Select as SL } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -9,7 +11,7 @@ interface props {
   className?: string;
   classNameContent?: string;
   classNameItem?: string;
-  items?: { id: string | number; label: string }[];
+  items?: ISelectItem[];
   required?: boolean;
   disabled?: boolean;
   onChange?: (value: string) => void;

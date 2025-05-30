@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import { useMainContext } from "@/data/hooks";
 import { Employees } from "@/data/services/employees";
-import { IEmployee, ILogin } from "@/data/models/employees";
+import { IEmployeeRes, ILogin } from "@/data/models/employees";
 
 export function useLogin() {
   const nav = useNavigate();
@@ -34,7 +34,7 @@ export function useLogin() {
     setForm({ ...form, [key]: e.target.value });
   };
 
-  const saveUserData = (userData: IEmployee) => {
+  const saveUserData = (userData: IEmployeeRes) => {
     Object.keys(userData).forEach((key: keyof typeof userData) => {
       localStorage.setItem(key, userData[key].toString());
     });

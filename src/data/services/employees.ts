@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { AxiosResponse } from "axios";
 
 import { useApi, useToast } from "@/data/hooks";
-import { IEmployee, ILogin } from "@/data/models/employees";
+import { IEmployeeCreate, IEmployeeRes, ILogin } from "@/data/models/employees";
 
 export function Employees() {
   const { api, getError } = useApi();
@@ -10,7 +10,7 @@ export function Employees() {
 
   const login = useCallback(async (body: ILogin) => {
     try {
-      const { data }: AxiosResponse<IEmployee | null> = await api.post("funcionarios/login", { ...body });
+      const { data }: AxiosResponse<IEmployeeRes | null> = await api.post("funcionarios/login", { ...body });
       if (data) {
         toast({ title: "Login", description: "Login realizado com sucesso!", variant: "successful" });
       }
@@ -21,5 +21,18 @@ export function Employees() {
     }
   }, []);
 
-  return { login };
+  const create = useCallback(async (body: IEmployeeCreate) => {
+    try {
+      const { data }: AxiosResponse<IEmployeeRes | null> = await api.post("funcionarios/", { ...body });
+      if (data.id) {
+        toast({ title: "Cadastro", description: "Cadastro realizado com sucesso!", variant: "successful" });
+      }
+      return data;
+    } catch (err) {
+      console.log(getError(err));
+      toast({ title: "Cadastro", description: getError(err), variant: "destructive" });
+    }
+  }, []);
+
+  return { login, create };
 }
