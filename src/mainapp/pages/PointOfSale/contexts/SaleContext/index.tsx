@@ -1,13 +1,22 @@
 import { FC, useRef, useState } from "react";
 
+import { useMainContext } from "@/data/hooks";
+
 import { Products } from "@/data/services/products";
+import { Sale } from "@/data/services/sale";
+
 import { IBaseModal } from "@/data/models/base-modal";
 
-import { initialState, SaleContext } from "./sale-context";
 import { PaymentType } from "../../models";
 
+import { initialState, SaleContext } from "./sale-context";
+import { formatPrice } from "../../utils";
+
 const SaleProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { loadingModalRef } = useMainContext();
+
   const { getProducts } = Products();
+  const { create } = Sale();
 
   const [products, setProducts] = useState(initialState.products);
   const [sales, setSales] = useState(initialState.sales);
@@ -57,6 +66,25 @@ const SaleProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     setCurrentPayment(payment);
   };
 
+  const closeSale = async () => {
+    try {
+      loadingModalRef.current?.onShow();
+
+      const data = {
+        id_funcionario: Number(localStorage.getItem("id") || 0),
+        total: sales.reduce((prev, curr) => prev + formatPrice(curr.preco) * curr.quantidade, 0),
+        produtos: sales.filter((preco) => preco.quantidade > 0).map((produto) => ({ id_produto: produto.id, quantidade: produto.quantidade })),
+      };
+
+      const sale = await create(data);
+      if (sale.id) {
+        clear();
+      }
+    } finally {
+      loadingModalRef.current?.onClose();
+    }
+  };
+
   return (
     <SaleContext.Provider
       value={{
@@ -70,6 +98,7 @@ const SaleProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
         clear,
         currentPayment,
         changePayment,
+        closeSale,
       }}
     >
       {children}

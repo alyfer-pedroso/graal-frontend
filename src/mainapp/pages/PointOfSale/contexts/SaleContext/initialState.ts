@@ -28,5 +28,18 @@ const increseQuantity: (id: number) => void = () => {};
 const decreaseQuantity: (id: number) => void = () => {};
 const clear = () => {};
 const changePayment: (payment: PaymentType) => void = () => {};
+const closeSale: () => Promise<void> = async () => {};
 
-export { products, addProductModalRef, openProductModal, sales, addProduct, increseQuantity, decreaseQuantity, clear, currentPayment, changePayment };
+export {
+  products,
+  addProductModalRef,
+  openProductModal,
+  sales,
+  addProduct,
+  increseQuantity,
+  decreaseQuantity,
+  clear,
+  currentPayment,
+  changePayment,
+  closeSale,
+};

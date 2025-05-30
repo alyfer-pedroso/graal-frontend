@@ -24,7 +24,7 @@ export function Products() {
       return data;
     } catch (err) {
       console.log(getError(err));
-      toast({ title: "Cadastro", description: getError(err), variant: "destructive" });
+      toast({ title: "Produtos", description: getError(err), variant: "destructive" });
     }
   }, []);
 

@@ -30,7 +30,7 @@ export function Employees() {
       return data;
     } catch (err) {
       console.log(getError(err));
-      toast({ title: "Cadastro", description: getError(err), variant: "destructive" });
+      toast({ title: "Funcionário", description: getError(err), variant: "destructive" });
     }
   }, []);
 

@@ -13,7 +13,7 @@ import { CashierHeader } from "../CashierHeader";
 import { paymentTypeOptions } from "../../models";
 
 export const Cashier: FC = () => {
-  const { sales, currentPayment, changePayment } = useSaleContext();
+  const { sales, currentPayment, changePayment, closeSale } = useSaleContext();
   const total = useMemo(() => sales.reduce((prev, curr) => prev + formatPrice(curr.preco) * curr.quantidade, 0), [sales]);
   const subTotal = useMemo(() => sales.reduce((prev, curr) => prev + formatPrice(curr.preco), 0), [sales]);
 
@@ -51,7 +51,12 @@ export const Cashier: FC = () => {
             ))}
           </div>
 
-          <Button variant="template" className="w-full py-5 [@media(min-height:712px)]:py-7">
+          <Button
+            onClick={closeSale}
+            disabled={!sales.filter((sale) => sale.quantidade > 0).length}
+            variant="template"
+            className="w-full py-5 [@media(min-height:712px)]:py-7"
+          >
             <FaRegCreditCard /> Fechar venda
           </Button>
 

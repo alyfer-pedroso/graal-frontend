@@ -13,3 +13,8 @@ export interface IProduct {
 }
 
 export type IProductCreate = Omit<IProduct, "id" | "fornecedor" | "categoria" | "EAN">;
+
+export interface IProductSale {
+  id_produto: number;
+  quantidade: number;
+}
