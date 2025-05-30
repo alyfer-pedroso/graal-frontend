@@ -10,9 +10,10 @@ import { useSaleContext } from "../../hooks";
 import { formatToString, formatPrice } from "../../utils";
 
 import { CashierHeader } from "../CashierHeader";
+import { paymentTypeOptions } from "../../models";
 
 export const Cashier: FC = () => {
-  const { sales } = useSaleContext();
+  const { sales, currentPayment, changePayment } = useSaleContext();
   const total = useMemo(() => sales.reduce((prev, curr) => prev + formatPrice(curr.preco) * curr.quantidade, 0), [sales]);
 
   return (
@@ -35,26 +36,29 @@ export const Cashier: FC = () => {
 
         <div className=" flex flex-col justify-between gap-2 -mt-2 scale-90 [@media(min-height:712px)]:scale-100 [@media(min-height:712px)]:mt-0 [@media(min-height:712px)]:gap-4">
           <div className="grid grid-cols-2 bg-graal-gray-200/50 p-1 gap-1 rounded-md">
-            <Button
-              variant="ghost"
-              className={cn("bg-transparent text-graal-gray-150 hover:bg-white", "text-black bg-white shadow-sm shadow-black/10 cursor-default")}
-            >
-              <FaRegCreditCard /> Cartão
-            </Button>
-            <Button variant="ghost" className={cn("bg-transparent text-graal-gray-150 hover:bg-white")}>
-              <Banknote /> Dinheiro
-            </Button>
+            {paymentTypeOptions.map((option) => (
+              <Button
+                key={option.value}
+                onClick={() => changePayment(option.value)}
+                variant="ghost"
+                className={cn("bg-transparent text-graal-gray-150 hover:bg-white", {
+                  "text-black bg-white shadow-sm shadow-black/10 cursor-default": option.value === currentPayment,
+                })}
+              >
+                <Banknote /> {option.label}
+              </Button>
+            ))}
           </div>
 
           <Button variant="template" className="w-full py-5 [@media(min-height:712px)]:py-7">
-            <FaRegCreditCard /> Pagar com Cartão
+            <FaRegCreditCard /> Fechar venda
           </Button>
 
           <div className="grid grid-cols-2 gap-1">
-            <Button variant="outline" className="hover:opacity-60 text-xs border-black">
+            <Button variant="outline" className="hover:opacity-60 text-xs border-black" disabled title="Em desenvolvimento">
               <Ticket /> Imprimir recibo
             </Button>
-            <Button variant="outline" className="hover:opacity-60 text-xs border-black">
+            <Button variant="outline" className="hover:opacity-60 text-xs border-black" disabled title="Em desenvolvimento">
               Recibo por email
             </Button>
           </div>

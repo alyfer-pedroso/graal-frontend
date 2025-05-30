@@ -1,5 +1,6 @@
 import { IBaseModal } from "@/data/models/base-modal";
 import { IProduct } from "@/data/models/products";
+import { PaymentType } from "../../models";
 
 const products: IProduct[] = [];
 const sales: (IProduct & { quantidade_max: number })[] = [
@@ -19,11 +20,13 @@ const sales: (IProduct & { quantidade_max: number })[] = [
   // },
 ];
 const addProductModalRef: React.RefObject<IBaseModal> = { current: null };
+const currentPayment: PaymentType = PaymentType.CREDIT_CARD;
 
 const openProductModal: () => void = () => {};
 const addProduct: (id: string) => void = () => {};
 const increseQuantity: (id: number) => void = () => {};
 const decreaseQuantity: (id: number) => void = () => {};
 const clear = () => {};
+const changePayment: (payment: PaymentType) => void = () => {};
 
-export { products, addProductModalRef, openProductModal, sales, addProduct, increseQuantity, decreaseQuantity, clear };
+export { products, addProductModalRef, openProductModal, sales, addProduct, increseQuantity, decreaseQuantity, clear, currentPayment, changePayment };

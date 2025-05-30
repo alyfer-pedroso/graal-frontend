@@ -4,12 +4,15 @@ import { Products } from "@/data/services/products";
 import { IBaseModal } from "@/data/models/base-modal";
 
 import { initialState, SaleContext } from "./sale-context";
+import { PaymentType } from "../../models";
 
 const SaleProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const { getProducts } = Products();
 
   const [products, setProducts] = useState(initialState.products);
   const [sales, setSales] = useState(initialState.sales);
+  const [currentPayment, setCurrentPayment] = useState(initialState.currentPayment);
+
   const addProductModalRef = useRef<IBaseModal>(null);
 
   const fetchProducts = async () => {
@@ -50,8 +53,25 @@ const SaleProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     setProducts(initialState.products);
   };
 
+  const changePayment = (payment: PaymentType) => {
+    setCurrentPayment(payment);
+  };
+
   return (
-    <SaleContext.Provider value={{ products, addProductModalRef, openProductModal, sales, addProduct, increseQuantity, decreaseQuantity, clear }}>
+    <SaleContext.Provider
+      value={{
+        products,
+        addProductModalRef,
+        openProductModal,
+        sales,
+        addProduct,
+        increseQuantity,
+        decreaseQuantity,
+        clear,
+        currentPayment,
+        changePayment,
+      }}
+    >
       {children}
     </SaleContext.Provider>
   );
