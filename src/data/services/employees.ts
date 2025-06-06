@@ -34,5 +34,15 @@ export function Employees() {
     }
   }, []);
 
-  return { login, create };
+  const getEmployees = useCallback(async () => {
+    try {
+      const { data }: AxiosResponse<IEmployeeRes[]> = await api.get("funcionarios/");
+      return data ?? [];
+    } catch (err) {
+      console.log(getError(err));
+      toast({ title: "Funcionários", description: getError(err), variant: "destructive" });
+    }
+  }, []);
+
+  return { login, create, getEmployees };
 }
