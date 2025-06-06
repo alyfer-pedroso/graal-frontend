@@ -60,7 +60,7 @@ export const AddModal: FC<props> = ({ ref }) => {
             required
             placeholder="Quantidade Mínima"
             type="number"
-            min={0}
+            min={1}
             step={1}
             value={Boolean(productForm.quantidade_min) ? productForm.quantidade_min : ""}
             onChange={changeProductForm("quantidade_min")}

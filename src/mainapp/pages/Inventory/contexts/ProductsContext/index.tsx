@@ -6,14 +6,12 @@ import { Products } from "@/data/services/products";
 import { Categories } from "@/data/services/categories";
 
 import { IBaseModal } from "@/data/models/base-modal";
-import { IProduct } from "@/data/models/products";
-import { ISelectItem } from "@/data/models/select";
 import { Suppliers } from "@/data/services/suppliers";
 
 import { ProductsContext, initialState } from "./products-context";
 
 const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { loadingModalRef, isLoading } = useMainContext();
+  const { loadingModalRef } = useMainContext();
 
   const { getProducts, create } = Products();
   const { getCategories } = Categories();

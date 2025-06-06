@@ -3,8 +3,6 @@ import { PAGES_LIST } from "@/data/constants";
 import { UserRoles } from "@/data/models/roles";
 
 export function usePagesList() {
-  console.log(window.location.hash);
-
   const hierarchy = useMemo(() => Number(localStorage.getItem("hierarquia")) as UserRoles, []);
   const routes = useMemo(() => PAGES_LIST.filter((page) => page.hierarchies.includes(hierarchy)), [hierarchy]);
 

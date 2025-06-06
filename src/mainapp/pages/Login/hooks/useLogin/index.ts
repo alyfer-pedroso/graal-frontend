@@ -25,7 +25,7 @@ export function useLogin() {
         nav("/home");
         location.reload();
       }
-    } catch {
+    } finally {
       loadingModalRef.current?.onClose();
     }
   };
