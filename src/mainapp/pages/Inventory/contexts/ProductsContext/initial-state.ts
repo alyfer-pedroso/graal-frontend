@@ -1,6 +1,7 @@
 import { IBaseModal } from "@/data/models/base-modal";
-import { IProduct, IProductCreate } from "@/data/models/products";
+import { IProduct, IProductCreate, IProductUpdate } from "@/data/models/products";
 import { ISelectItem } from "@/data/models/select";
+import { IEditModal } from "../../models";
 
 const productForm: IProductCreate = {
   id_categoria: 0,
@@ -17,6 +18,7 @@ const categories: ISelectItem[] = [];
 const suppliers: ISelectItem[] = [];
 const search: string = "";
 const addModalRef: React.RefObject<IBaseModal> = { current: null };
+const editModalRef: React.RefObject<IEditModal> = { current: null };
 
 const openAddModal: () => Promise<void> = async () => {};
 const changeProductForm: (key: keyof typeof productForm) => (e: React.ChangeEvent<HTMLInputElement>) => void = () => () => {};
@@ -24,6 +26,8 @@ const changeCategory: (id: string) => void = () => {};
 const changeSupplier: (id: string) => void = () => {};
 const onSubmitProduct: (e: React.FormEvent) => Promise<void> = async () => {};
 const onSearch: (e: React.ChangeEvent<HTMLInputElement>) => void = () => {};
+const onSubmitEditProduct: (data: IProductUpdate) => Promise<void> = async () => {};
+const openEditModal: (data: IProductUpdate) => Promise<void> = async () => {};
 
 export {
   productForm,
@@ -39,4 +43,7 @@ export {
   changeSupplier,
   onSubmitProduct,
   onSearch,
+  onSubmitEditProduct,
+  editModalRef,
+  openEditModal,
 };

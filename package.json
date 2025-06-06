@@ -1,8 +1,8 @@
 {
   "name": "graal-frontend",
-  "productName": "graal-frontend",
+  "productName": "Sistema Graal",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Sistema de gerenciamento de supermercados Graal",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",

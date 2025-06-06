@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { AxiosResponse } from "axios";
 
 import { useApi, useToast } from "@/data/hooks";
-import { IProduct, IProductCreate } from "../models/products";
+import { IProduct, IProductCreate, IProductUpdate } from "../models/products";
 
 export function Products() {
   const { api, getError } = useApi();
@@ -28,5 +28,15 @@ export function Products() {
     }
   }, []);
 
-  return { getProducts, create };
+  const update = useCallback(async (body: IProductUpdate) => {
+    try {
+      const { data }: AxiosResponse<IProduct> = await api.put(`produtos/${body.id}`, { ...body });
+      return data;
+    } catch (err) {
+      console.log(getError(err));
+      toast({ title: "Produtos", description: getError(err), variant: "destructive" });
+    }
+  }, []);
+
+  return { getProducts, create, update };
 }

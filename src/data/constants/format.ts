@@ -1,5 +1,5 @@
-export const formatPrice = (price: string) => {
-  return parseFloat(price.replace("R$", "").replace(/\./g, "").replace(",", ".").trim());
+export const formatPrice = (price: string | number) => {
+  return parseFloat(price.toString().replace("R$", "").replace(/\./g, "").replace(",", ".").trim());
 };
 
 export const formatToString = (price: number | string) => {
