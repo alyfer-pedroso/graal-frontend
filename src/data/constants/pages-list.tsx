@@ -6,7 +6,8 @@ import { UserRoles } from "@/data/models/roles";
 
 import PointOfSaleIcon from "@/assets/images/point-of-sale.svg";
 import InventoryIcon from "@/assets/images/inventory.svg";
-import ConfigIcon from "@/assets/images/config.svg";
+import SalesListIcon from "@/assets/images/sales-list.svg";
+import EmployeesIcon from "@/assets/images/users.svg";
 
 export const PAGES_LIST: IPage[] = [
   {
@@ -43,15 +44,24 @@ export const PAGES_LIST: IPage[] = [
     title: "Estoque",
     component: <Pages.Inventory />,
     hierarchies: [UserRoles.MANAGER],
-    description: "Processar vendas, digitalizar itens e lidar com transações de clientes",
+    description: "Gerencie e organize facilmente o estoque do supermercado, garantindo eficiência e controle.",
   },
   {
-    icon: ConfigIcon,
+    icon: SalesListIcon,
     showInHome: true,
-    path: "/configurations",
-    title: "Configurações",
-    component: <Pages.Home />,
+    path: "/sales-list",
+    title: "Vendas",
+    component: <Pages.SalesList />,
     hierarchies: [UserRoles.MANAGER],
-    description: "Processar vendas, digitalizar itens e lidar com transações de clientes",
+    description: "Acompanhe e gerencie suas vendas, incluindo relatórios e análises detalhadas.",
+  },
+  {
+    icon: EmployeesIcon,
+    showInHome: true,
+    path: "/employees",
+    title: "Funcionários",
+    component: <Pages.Employees />,
+    hierarchies: [UserRoles.MANAGER],
+    description: "Gerencie e organize facilmente os funcionários do supermercado, garantindo eficiência e controle.",
   },
 ];

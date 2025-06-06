@@ -3,3 +3,5 @@ export { Register } from "./Register";
 export { PointOfSale } from "./PointOfSale";
 export { Home } from "./Home";
 export { Inventory } from "./Inventory";
+export { SalesList } from "./SalesList";
+export { Employees } from "./Employees";

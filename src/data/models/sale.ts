@@ -11,3 +11,17 @@ export interface ISaleCreate {
   total: number;
   produtos: IProductSale[];
 }
+
+export interface ISaleForList {
+  data_venda: string;
+  items: IItemForList[];
+  nome_funcionario: string;
+  total: string;
+  venda_id: number;
+}
+
+export interface IItemForList {
+  nome: string;
+  preco_unidade: number;
+  quantidade_comprada: number;
+}
