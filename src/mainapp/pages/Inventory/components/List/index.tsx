@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Pencil } from "lucide-react";
+// import { Pencil } from "lucide-react";
 
 import { Container } from "@/components/template";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui";
 
 import { useProductsContext } from "../../hooks";
 
-const headers = ["ID", "Nome Produto", "Preço", "Cateogria", "EAN", "Qtd", "Min. Qtd", "Fornecedor", "Ações"];
+const headers = ["ID", "Nome Produto", "Preço", "Cateogria", "EAN", "Qtd", "Min. Qtd", "Fornecedor"];
 
 export const List: FC = () => {
   const { products } = useProductsContext();
@@ -39,11 +39,11 @@ export const List: FC = () => {
                 <TableCell>{data.quantidade}</TableCell>
                 <TableCell>{data.quantidade_min}</TableCell>
                 <TableCell>{data.fornecedor}</TableCell>
-                <TableCell>
+                {/* <TableCell>
                   <button className="p-0" title="Editar: opção em desenvolvimento">
                     <Pencil size={18} className="mx-auto" />
                   </button>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))
           )}
