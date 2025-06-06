@@ -1,6 +1,6 @@
 {
   "name": "graal-frontend",
-  "productName": "Sistema Graal",
+  "productName": "Graal Supermarket",
   "version": "1.0.0",
   "description": "Sistema de gerenciamento de supermercados Graal",
   "main": ".vite/build/main.js",

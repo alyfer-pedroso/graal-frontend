@@ -14,7 +14,7 @@ interface props {
 
 export const Header: FC<props> = ({ show }) => {
   const { currentRoute, PAGES_LIST } = usePagesList();
-  const inHome = useMemo(() => currentRoute?.title === PAGES_LIST[2]?.title, [currentRoute]);
+  const inHome = useMemo(() => currentRoute?.title === PAGES_LIST[2]?.title, [currentRoute?.title]);
 
   const headerComponent = useMemo(() => {
     if (inHome) {
