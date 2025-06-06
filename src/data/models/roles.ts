@@ -1,3 +1,4 @@
 export enum UserRoles {
-  CASHIER = 0,
+  CASHIER = 1,
+  MANAGER = 2,
 }

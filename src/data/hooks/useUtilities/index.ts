@@ -1,9 +1,13 @@
+import { useToast } from "../useToast";
+
 export function useUtilities() {
+  const { toast } = useToast();
+
   const validateCPF = (cpf: string): boolean => {
     const cleanCPF: string = cpf.replace(/[.-]/g, "");
 
     const returnFalse = () => {
-      alert(`CPF ${cpf} inválido`);
+      toast({ title: "Utilitários", description: `CPF ${cpf} inválido`, variant: "attention" });
       return false;
     };
 

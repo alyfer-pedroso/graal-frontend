@@ -27,3 +27,5 @@ export {
   SelectTrigger,
   SelectValue,
 } from "./select";
+
+export { Table, TableBody, TableCell, TableCaption, TableHead, TableHeader, TableRow, TableFooter } from "./table";

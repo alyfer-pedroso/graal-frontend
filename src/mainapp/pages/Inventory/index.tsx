@@ -1,6 +1,11 @@
 import { FC } from "react";
-import { Page } from "@/components/template";
+import { Content } from "./components";
+import { ProductsProvider } from "./contexts";
 
 export const Inventory: FC = () => {
-  return <Page></Page>;
+  return (
+    <ProductsProvider>
+      <Content />
+    </ProductsProvider>
+  );
 };
