@@ -6,14 +6,16 @@ import { Products } from "@/data/services/products";
 import { Categories } from "@/data/services/categories";
 
 import { IBaseModal } from "@/data/models/base-modal";
+import { IProductUpdate } from "@/data/models/products";
 import { Suppliers } from "@/data/services/suppliers";
 
 import { ProductsContext, initialState } from "./products-context";
+import { IEditModal } from "../../models";
 
 const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const { loadingModalRef } = useMainContext();
 
-  const { getProducts, create } = Products();
+  const { getProducts, create, update } = Products();
   const { getCategories } = Categories();
   const { getSuppliers } = Suppliers();
 
@@ -24,6 +26,7 @@ const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [search, setSearch] = useState(initialState.search);
 
   const addModalRef = useRef<IBaseModal>(null);
+  const editModalRef = useRef<IEditModal>(null);
 
   const fetchProducts = async () => {
     if (products.length) return;
@@ -58,6 +61,12 @@ const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     await fetchSuppliers();
   };
 
+  const openEditModal = async (data: IProductUpdate) => {
+    editModalRef.current?.onShow(data);
+    await fetchCategories();
+    await fetchSuppliers();
+  };
+
   const changeProductForm = (key: keyof typeof productForm) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setProductForm({ ...productForm, [key]: e.target.value });
   };
@@ -88,6 +97,19 @@ const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     }
   };
 
+  const onSubmitEditProduct = async (data: IProductUpdate) => {
+    try {
+      loadingModalRef.current?.onShow();
+      const updated = await update(data);
+      if (updated?.id) {
+        setProducts((state) => state.map((product) => (product.id === updated.id ? updated : product)));
+        editModalRef.current?.onClose();
+      }
+    } finally {
+      loadingModalRef.current?.onClose();
+    }
+  };
+
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
 
   useEffect(() => {
@@ -110,6 +132,9 @@ const ProductsProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
         onSubmitProduct,
         search,
         onSearch,
+        onSubmitEditProduct,
+        editModalRef,
+        openEditModal,
       }}
     >
       {children}

@@ -18,3 +18,8 @@ export interface IProductSale {
   id_produto: number;
   quantidade: number;
 }
+
+export interface IProductUpdate extends Omit<IProductCreate, "preco"> {
+  id: number;
+  preco: number;
+}

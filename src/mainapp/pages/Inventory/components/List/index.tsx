@@ -1,15 +1,16 @@
 import { FC } from "react";
-// import { Pencil } from "lucide-react";
+import { Pencil } from "lucide-react";
 
 import { Container } from "@/components/template";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui";
 
 import { useProductsContext } from "../../hooks";
+import { IProductUpdate } from "@/data/models/products";
 
-const headers = ["ID", "Nome Produto", "Preço", "Cateogria", "EAN", "Qtd", "Min. Qtd", "Fornecedor"];
+const headers = ["ID", "Nome Produto", "Preço", "Cateogria", "EAN", "Qtd", "Min. Qtd", "Fornecedor", "Editar"];
 
 export const List: FC = () => {
-  const { products } = useProductsContext();
+  const { products, openEditModal } = useProductsContext();
 
   return (
     <Container key={products.length} className="overflow-y-scroll flex-1 scrollstyled">
@@ -39,11 +40,11 @@ export const List: FC = () => {
                 <TableCell>{data.quantidade}</TableCell>
                 <TableCell>{data.quantidade_min}</TableCell>
                 <TableCell>{data.fornecedor}</TableCell>
-                {/* <TableCell>
-                  <button className="p-0" title="Editar: opção em desenvolvimento">
+                <TableCell>
+                  <button className="p-0" onClick={() => openEditModal(data as unknown as IProductUpdate)}>
                     <Pencil size={18} className="mx-auto" />
                   </button>
-                </TableCell> */}
+                </TableCell>
               </TableRow>
             ))
           )}
